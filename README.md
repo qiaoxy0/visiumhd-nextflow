@@ -116,26 +116,6 @@ results/
     └── trace.txt                     # Resource usage
 ```
 
-## Deploying on a Shared Server
-
-```bash
-# Admin: clone to shared location
-sudo git clone https://github.com/<your-org>/VisiumHD.git /opt/pipelines/VisiumHD
-cd /opt/pipelines/VisiumHD
-sudo ./setup.sh
-sudo chown -R root:labgroup /opt/pipelines/VisiumHD
-chmod -R 755 /opt/pipelines/VisiumHD
-chmod -R 775 /opt/pipelines/VisiumHD/.conda_cache
-
-# Users: run from their own directory
-mkdir -p ~/visiumhd_runs/exp1 && cd ~/visiumhd_runs/exp1
-cp /opt/pipelines/VisiumHD/params.yml.template my_run.yml
-nano my_run.yml
-/opt/pipelines/VisiumHD/run_pipeline.sh my_run.yml
-```
-
-Each user's `work/` directory and results stay in their own space. The pipeline installation remains read-only.
-
 ## Parameters Reference
 
 ### Required
