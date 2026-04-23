@@ -18,8 +18,8 @@ Reference genome and probe set files are available from 10x Genomics.
 
 ```bash
 # Step 1: Clone and set up (one-time)
-git clone https://github.com/qiaoxy0/VisiumHD.git
-cd VisiumHD
+git clone https://github.com/qiaoxy0/visiumhd-nextflow.git
+cd visiumhd-nextflow
 ./setup.sh
 
 # Step 2: Configure your run
