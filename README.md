@@ -55,8 +55,8 @@ The pipeline auto-detects whether `--input_dir` points to a single sample or a p
 ```yaml
 # Required — fill these in
 input_dir:       "/data/visiumhd/my_samples"
-spaceranger_ref: "/refs/refdata-gex-GRCm39-2024-A"
-probe_set:       "/refs/probe_sets/Visium_Mouse_v2.1.0.csv"
+spaceranger_ref: "/path/to/refdata-gex-mm10-2020-A"
+probe_set:       "/path/to/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.0_mm10-2020-A.csv"
 
 # Optional — change if needed
 output_dir:       "./results"       # where results go
