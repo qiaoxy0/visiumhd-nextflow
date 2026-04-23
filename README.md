@@ -2,11 +2,39 @@
 
 A Nextflow pipeline for processing 10x Genomics Visium HD spatial transcriptomics data — from FASTQ processing through cell segmentation and clustering analysis.
 
+## Prerequisites
+
+The `setup.sh` script checks all of these for you:
+
+| Tool | Install |
+|------|---------|
+| **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io \| bash && sudo mv nextflow /usr/local/bin/` |
+| **Conda** or **Mamba** | [Miniconda](https://docs.conda.io/en/latest/miniconda.html) |
+| **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — add to `PATH` |
+
+Reference genome and probe set files are available from 10x Genomics.
+
+## Input Directory Structure
+
+```
+input_dir/
+├── Sample1/
+│   ├── *_R1_001.fastq.gz     # Read 1
+│   ├── *_R2_001.fastq.gz     # Read 2
+│   ├── *.json                 # Loupe alignment file
+│   ├── HE.tif                 # High-resolution H&E image
+│   └── CytAssist.tif          # CytAssist image
+├── Sample2/
+│   └── ...
+```
+
+The pipeline auto-detects whether `--input_dir` points to a single sample or a parent directory containing multiple samples.
+
 ## Quick Start (3 steps)
 
 ```bash
 # Step 1: Clone and set up (one-time)
-git clone https://github.com/<your-org>/VisiumHD.git
+git clone https://github.com/qiaoxy0/VisiumHD.git
 cd VisiumHD
 ./setup.sh
 
@@ -57,34 +85,6 @@ screen -S visiumhd
 # Clean up after a run
 rm -rf work/ .nextflow/
 ```
-
-## Prerequisites
-
-The `setup.sh` script checks all of these for you:
-
-| Tool | Install |
-|------|---------|
-| **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io \| bash && sudo mv nextflow /usr/local/bin/` |
-| **Conda** or **Mamba** | [Miniconda](https://docs.conda.io/en/latest/miniconda.html) |
-| **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — add to `PATH` |
-
-Reference genome and probe set files are available from 10x Genomics.
-
-## Input Directory Structure
-
-```
-input_dir/
-├── Sample1/
-│   ├── *_R1_001.fastq.gz     # Read 1
-│   ├── *_R2_001.fastq.gz     # Read 2
-│   ├── *.json                 # Loupe alignment file
-│   ├── HE.tif                 # High-resolution H&E image
-│   └── CytAssist.tif          # CytAssist image
-├── Sample2/
-│   └── ...
-```
-
-The pipeline auto-detects whether `--input_dir` points to a single sample or a parent directory containing multiple samples.
 
 ## Processing Modes
 
