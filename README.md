@@ -60,7 +60,7 @@ probe_set:       "/path/to/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.0_
 
 # Optional — change if needed
 output_dir:       "./results"       # where results go
-processing_mode:  "Default"         # "Default" or "Cellseg"
+processing_mode:  "Cellseg"         # "Default" or "Cellseg"
 mpp:              0.5               # microns per pixel (Cellseg mode)
 max_memory:       "256.GB"          # adjust to your server
 max_cpus:         32
@@ -92,7 +92,7 @@ rm -rf work/ .nextflow/
 
 **Default** — SpaceRanger built-in segmentation → Seurat sketch clustering → marker genes
 
-**Cellseg** — SpaceRanger → bin2cell nuclear segmentation (StarDist) → Seurat sketch clustering → marker genes. Use this for higher-resolution single-cell assignments.
+**Cellseg** — SpaceRanger → nuclear segmentation (StarDist) and bin2cell reconstruction  → Scanpy/Seurat analysis workflow. 
 
 ## Output Structure
 
