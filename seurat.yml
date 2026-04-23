@@ -1,0 +1,18 @@
+name: seurat
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # R and core dependencies
+  - r-base=4.3
+  - r-seurat=5
+  - r-matrix
+  - r-ggplot2
+  - r-dplyr
+  - r-cowplot
+  - r-patchwork
+  - r-remotes
+  - r-devtools
+  - r-hdf5r
+  - r-bpcells
