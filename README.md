@@ -10,7 +10,7 @@ You should install these first to set up the environment before running the anal
 |------|---------|
 | **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io \| bash && sudo mv nextflow /usr/local/bin/` |
 | **Conda** or **Mamba** | [Miniconda](https://docs.conda.io/en/latest/miniconda.html) |
-| **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — add to `PATH` |
+| **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — follow their instructions add SpaceRanger to `PATH` |
 
 Reference genome and probe set files are available from 10x Genomics.
 
