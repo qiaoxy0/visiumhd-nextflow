@@ -1,184 +1,157 @@
 # VisiumHD Pipeline
 
-A Nextflow pipeline for processing 10x Genomics Visium HD spatial transcriptomics data, from FASTQ processing through cell segmentation and clustering analysis.
+A Nextflow pipeline for processing 10x Genomics Visium HD spatial transcriptomics data — from FASTQ processing through cell segmentation and clustering analysis.
 
-## For Lab Members (Quick Start)
+## Quick Start (3 steps)
 
 ```bash
-# 1. Clone the repo
+# Step 1: Clone and set up (one-time)
 git clone https://github.com/<your-org>/VisiumHD.git
 cd VisiumHD
+./setup.sh
 
-# 2. Make sure spaceranger is in your PATH
-spaceranger --version
+# Step 2: Configure your run
+cp params.yml.template my_run.yml
+nano my_run.yml          # fill in your paths
 
-# 3. Run from your own working directory
-cd ~/my_analysis
-/path/to/VisiumHD/run_pipeline.sh \
-  --input_dir /path/to/samples \
-  --output_dir ./results \
-  --spaceranger_ref /path/to/refdata-gex-GRCm39-2024-A \
-  --probe_set /path/to/probe_set.csv \
-  --processing_mode Default
+# Step 3: Run
+./run_pipeline.sh my_run.yml
 ```
 
-For long runs, use `screen` or `tmux`.
+That's it. The `setup.sh` checks prerequisites and pre-builds conda environments. The `params.yml` file is the only thing you need to edit.
+
+## What to Put in `my_run.yml`
+
+```yaml
+# Required — fill these in
+input_dir:       "/data/visiumhd/my_samples"
+spaceranger_ref: "/refs/refdata-gex-GRCm39-2024-A"
+probe_set:       "/refs/probe_sets/Visium_Mouse_v2.1.0.csv"
+
+# Optional — change if needed
+output_dir:       "./results"       # where results go
+processing_mode:  "Default"         # "Default" or "Cellseg"
+mpp:              0.5               # microns per pixel (Cellseg mode)
+max_memory:       "256.GB"          # adjust to your server
+max_cpus:         32
+```
+
+## Common Commands
+
+```bash
+# Run the pipeline
+./run_pipeline.sh my_run.yml
+
+# Resume a failed/interrupted run
+./run_pipeline.sh my_run.yml -resume
+
+# Run in background with screen
+screen -S visiumhd
+./run_pipeline.sh my_run.yml
+# Detach: Ctrl+A, D
+# Reattach: screen -r visiumhd
+
+# Show help
+./run_pipeline.sh --help
+
+# Clean up after a run
+rm -rf work/ .nextflow/
+```
 
 ## Prerequisites
 
-Before running the pipeline, install these on the host machine:
+The `setup.sh` script checks all of these for you:
 
-1. **[Nextflow](https://www.nextflow.io/docs/latest/install.html)** (>=21.04.0)
-   ```bash
-   curl -s https://get.nextflow.io | bash
-   sudo mv nextflow /usr/local/bin/
-   ```
+| Tool | Install |
+|------|---------|
+| **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io \| bash && sudo mv nextflow /usr/local/bin/` |
+| **Conda** or **Mamba** | [Miniconda](https://docs.conda.io/en/latest/miniconda.html) |
+| **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — add to `PATH` |
 
-2. **[Conda](https://docs.conda.io/en/latest/miniconda.html)** (Miniconda or Mamba)
-
-3. **[SpaceRanger](https://www.10xgenomics.com/support/software/space-ranger/downloads)** — add to your `PATH`:
-   ```bash
-   export PATH=/path/to/spaceranger-x.x.x:$PATH
-   spaceranger --version
-   ```
-
-4. **Reference data**: genome reference and probe set from 10x Genomics.
-
-## Running the Pipeline
-
-```bash
-# Default mode (SpaceRanger segmentation → Seurat clustering)
-nextflow run main.nf -profile conda \
-  --input_dir /path/to/samples \
-  --output_dir /path/to/results \
-  --spaceranger_ref /path/to/refdata-gex-GRCm39-2024-A \
-  --probe_set /path/to/probe_set.csv
-
-# Cellseg mode (SpaceRanger → bin2cell segmentation → Seurat clustering)
-nextflow run main.nf -profile conda \
-  --input_dir /path/to/samples \
-  --output_dir /path/to/results \
-  --spaceranger_ref /path/to/refdata-gex-GRCm39-2024-A \
-  --probe_set /path/to/probe_set.csv \
-  --processing_mode Cellseg \
-  --mpp 0.5
-```
-
-Or use the wrapper script from any directory:
-
-```bash
-/path/to/VisiumHD/run_pipeline.sh \
-  --input_dir /path/to/samples \
-  --spaceranger_ref /path/to/ref \
-  --probe_set /path/to/probes.csv
-```
+Reference genome and probe set files are available from 10x Genomics.
 
 ## Input Directory Structure
-
-The pipeline expects each sample in its own directory under `--input_dir`:
 
 ```
 input_dir/
 ├── Sample1/
-│   ├── Sample_1_S1_L001_R1_001.fastq.gz
-│   ├── Sample_1_S1_L001_R2_001.fastq.gz
-│   ├── *.json      # Loupe alignment file
-│   ├── *.tif       # High-resolution image
-│   └── *.tif       # CytAssist image
+│   ├── *_R1_001.fastq.gz     # Read 1
+│   ├── *_R2_001.fastq.gz     # Read 2
+│   ├── *.json                 # Loupe alignment file
+│   ├── HE.tif                 # High-resolution H&E image
+│   └── CytAssist.tif          # CytAssist image
 ├── Sample2/
 │   └── ...
 ```
 
-### Required Files per Sample
-
-1. **FASTQ files**: R1 and R2 paired-end sequencing files
-2. **Loupe alignment file**: JSON file from 10x Loupe Browser after alignment
-3. **High-resolution image**: TIFF microscopy image
-4. **CytAssist image**: CytAssist image
-
-## Parameters
-
-### Required Parameters
-
-| Parameter | Description | Example |
-|-----------|-------------|---------|
-| `--input_dir` | Directory containing sample folders | `/data/visiumhd_samples` |
-| `--spaceranger_ref` | Path to SpaceRanger reference genome | `/refs/refdata-gex-GRCh38-2020-A` |
-| `--probe_set` | Path to probe set CSV file | `probe_sets/Visium_Mouse_v2.1.0.csv` |
-
-### Optional Parameters
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `--output_dir` | `./results` | Output directory for all results |
-| `--processing_mode` | `Default` | Processing mode: `Default` or `Cellseg` |
-| `--mpp` | `0.5` | Microns per pixel for bin2cell segmentation |
-| `--max_memory` | `256.GB` | Maximum memory allocation |
-| `--max_cpus` | `32` | Maximum CPU cores |
-| `--help` | `false` | Show help message |
+The pipeline auto-detects whether `--input_dir` points to a single sample or a parent directory containing multiple samples.
 
 ## Processing Modes
 
-### Default Mode
-Standard SpaceRanger analysis followed by Seurat clustering:
-- SpaceRanger default cell segmentation → Seurat sketch clustering → Marker identification
+**Default** — SpaceRanger built-in segmentation → Seurat sketch clustering → marker genes
 
-### Cellseg Mode
-Enhanced single-cell segmentation using bin2cell:
-- SpaceRanger count → bin2cell segmentation → Seurat sketch clustering → Marker identification
+**Cellseg** — SpaceRanger → bin2cell nuclear segmentation (StarDist) → Seurat sketch clustering → marker genes. Use this for higher-resolution single-cell assignments.
 
-## Output Directory Structure
+## Output Structure
 
 ```
 results/
 ├── Sample1/
-│   ├── spaceranger_Sample1/
-│   ├── bin2cell_Sample1/       # Only in Cellseg mode
+│   ├── spaceranger_Sample1/          # SpaceRanger outputs
+│   ├── bin2cell_Sample1/             # Cell segmentation (Cellseg mode only)
 │   │   ├── cell_adata.h5ad
 │   │   ├── segmentation_whole.png
-│   │   ├── hist_bin.png
-│   │   ├── total_count.png
 │   │   └── ...
-│   └── seurat_Sample1/
+│   └── seurat_Sample1/              # Clustering results
 │       ├── Sample1_seurat_object.rds
 │       ├── Sample1_umap_sketch.png
 │       ├── Sample1_markers.csv
 │       ├── Sample1_seurat_meta.csv
 │       └── ...
-├── Sample2/
-│   └── ...
 └── pipeline_info/
-    ├── timeline.html
-    ├── report.html
-    └── trace.txt
+    ├── report.html                   # Execution report
+    ├── timeline.html                 # Timeline visualization
+    └── trace.txt                     # Resource usage
 ```
 
-## Deployment on a Shared Server
+## Deploying on a Shared Server
 
 ```bash
-# Clone to a shared location
+# Admin: clone to shared location
 sudo git clone https://github.com/<your-org>/VisiumHD.git /opt/pipelines/VisiumHD
-
-# Pre-build conda environments
 cd /opt/pipelines/VisiumHD
-nextflow run main.nf -profile conda --help
-
-# Set permissions for lab group
+sudo ./setup.sh
 sudo chown -R root:labgroup /opt/pipelines/VisiumHD
 chmod -R 755 /opt/pipelines/VisiumHD
 chmod -R 775 /opt/pipelines/VisiumHD/.conda_cache
+
+# Users: run from their own directory
+mkdir -p ~/visiumhd_runs/exp1 && cd ~/visiumhd_runs/exp1
+cp /opt/pipelines/VisiumHD/params.yml.template my_run.yml
+nano my_run.yml
+/opt/pipelines/VisiumHD/run_pipeline.sh my_run.yml
 ```
 
-Users then run from their own directories — `work/` and results stay in their space.
+Each user's `work/` directory and results stay in their own space. The pipeline installation remains read-only.
 
-## Clean Cache After Run
+## Parameters Reference
 
-```bash
-rm -rf work/ .nextflow/
+### Required
 
-# List all previous runs
-nextflow log
+| Parameter | Description |
+|-----------|-------------|
+| `input_dir` | Directory containing sample folders |
+| `spaceranger_ref` | SpaceRanger reference genome path |
+| `probe_set` | Probe set CSV file path |
 
-# Resume a failed run
-nextflow run main.nf -resume [your parameters]
-```
+### Optional
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `output_dir` | `./results` | Output directory |
+| `processing_mode` | `Default` | `Default` or `Cellseg` |
+| `mpp` | `0.5` | Microns per pixel (Cellseg mode) |
+| `spaceranger_bin` | `spaceranger` | SpaceRanger executable path |
+| `max_memory` | `256.GB` | Maximum memory per process |
+| `max_cpus` | `32` | Maximum CPU cores per process |
+| `max_time` | `48.h` | Maximum wall time per process |
