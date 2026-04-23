@@ -4,7 +4,7 @@ A Nextflow pipeline for processing 10x Genomics Visium HD spatial transcriptomic
 
 ## Prerequisites
 
-The `setup.sh` script checks all of these for you:
+You should install these first to set up the environment before running the analysis pipeline. Run `setup.sh` script to check after your installation:
 
 | Tool | Install |
 |------|---------|
@@ -13,22 +13,6 @@ The `setup.sh` script checks all of these for you:
 | **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — add to `PATH` |
 
 Reference genome and probe set files are available from 10x Genomics.
-
-## Input Directory Structure
-
-```
-input_dir/
-├── Sample1/
-│   ├── *_R1_001.fastq.gz     # Read 1
-│   ├── *_R2_001.fastq.gz     # Read 2
-│   ├── *.json                 # Loupe alignment file
-│   ├── HE.tif                 # High-resolution H&E image
-│   └── CytAssist.tif          # CytAssist image
-├── Sample2/
-│   └── ...
-```
-
-The pipeline auto-detects whether `--input_dir` points to a single sample or a parent directory containing multiple samples.
 
 ## Quick Start (3 steps)
 
@@ -46,7 +30,25 @@ nano my_run.yml          # fill in your paths
 ./run_pipeline.sh my_run.yml
 ```
 
-That's it. The `setup.sh` checks prerequisites and pre-builds conda environments. The `params.yml` file is the only thing you need to edit.
+The `setup.sh` checks prerequisites and pre-builds conda environments. The `params.yml` file is the only thing you need to edit.
+
+
+## Input Directory Structure
+
+```
+input_dir/
+├── Sample1/
+│   ├── *_R1_001.fastq.gz     # Read 1
+│   ├── *_R2_001.fastq.gz     # Read 2
+│   ├── *.json                 # Loupe alignment file
+│   ├── HE.tif                 # High-resolution H&E image
+│   └── CytAssist.tif          # CytAssist image
+├── Sample2/
+│   └── ...
+```
+
+The pipeline auto-detects whether `--input_dir` points to a single sample or a parent directory containing multiple samples.
+
 
 ## What to Put in `my_run.yml`
 
