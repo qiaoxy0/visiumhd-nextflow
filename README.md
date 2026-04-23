@@ -8,7 +8,7 @@ You should install these first to set up the environment before running the anal
 
 | Tool | Install |
 |------|---------|
-| **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io \| bash && sudo mv nextflow /usr/local/bin/` |
+| **Nextflow** (>=21.04) | `curl -s https://get.nextflow.io | bash` |
 | **Conda** or **Mamba** | [Miniconda](https://docs.conda.io/en/latest/miniconda.html) |
 | **SpaceRanger** | [10x Downloads](https://www.10xgenomics.com/support/software/space-ranger/downloads) — follow their instructions add SpaceRanger to `PATH` |
 
