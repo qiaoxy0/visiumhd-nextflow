@@ -1,0 +1,138 @@
+Apr-23 21:16:53.403 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf -profile conda -w /home/data2/qiao/PKD/HD/visiumhd-nextflow/work -params-file my_run.yml -resume
+Apr-23 21:16:53.554 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Apr-23 21:16:53.655 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/users/qiao/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Apr-23 21:16:53.692 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-23 21:16:53.693 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-23 21:16:53.699 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-23 21:16:53.745 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Apr-23 21:16:54.008 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-23 21:16:54.139 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 21:16:54.145 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 21:16:54.208 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `conda`
+Apr-23 21:16:55.440 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, conda]
+Apr-23 21:16:55.530 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-23 21:16:55.531 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-23 21:16:55.554 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/users/qiao/.nextflow/secrets/store.json
+Apr-23 21:16:55.560 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@713ec32d] - activable => nextflow.secret.LocalSecretsProvider@713ec32d
+Apr-23 21:16:55.571 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-23 21:16:55.598 [main] DEBUG nextflow.cli.CmdRun - Launching `/home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf` [curious_dubinsky] DSL2 - revision: 68306be2a4
+Apr-23 21:16:55.673 [main] DEBUG nextflow.Session - Session UUID: e41765b7-a7c0-4175-99e9-376cb6ad9a66
+Apr-23 21:16:55.674 [main] DEBUG nextflow.Session - Run name: curious_dubinsky
+Apr-23 21:16:55.674 [main] DEBUG nextflow.Session - Executor pool size: 56
+Apr-23 21:16:55.689 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-23 21:16:55.697 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 21:16:55.737 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (09:17 CDT)
+  System: Linux 5.4.0-187-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.14+1-b1367.22
+  Encoding: UTF-8 (UTF-8)
+  Process: 1094861@humphreyslabserver.renalres.wustl.edu [10.24.70.12]
+  CPUs: 56 - Mem: 256 GB (128.4 GB) - Swap: 0 (0)
+Apr-23 21:16:55.781 [main] DEBUG nextflow.Session - Work-dir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work [ext2/ext3]
+Apr-23 21:16:55.829 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-23 21:16:55.851 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Apr-23 21:16:55.855 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Apr-23 21:16:55.947 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-23 21:16:55.963 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 57; maxThreads: 1000
+Apr-23 21:16:56.069 [main] DEBUG nextflow.Session - Session start
+Apr-23 21:16:56.079 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: ./results/pipeline_info/trace.txt
+Apr-23 21:16:57.040 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-23 21:16:57.585 [main] INFO  nextflow.Nextflow - 
+    =========================================
+    VisiumHD Processing Pipeline
+    =========================================
+    Input directory     : /home/data2/qiao/PKD/HD/Sample1
+    SpaceRanger ref     : /home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A
+    SpaceRanger exec    : spaceranger
+    Probe set           : /home/data2/qiao/PKD/script/0_run_spaceranger/spaceranger-4.0.1/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.0_mm10-2020-A.csv
+    Output directory    : ./results
+    Processing mode     : Cellseg
+    Microns per pixel   : 0.5
+    =========================================
+    Starting analysis...
+    
+Apr-23 21:16:57.729 [main] INFO  nextflow.Nextflow - Starting SpaceRanger analysis...
+Apr-23 21:16:57.773 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SPACERANGER_COUNT` matches process SPACERANGER_COUNT
+Apr-23 21:16:57.782 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 21:16:57.782 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 21:16:57.799 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Apr-23 21:16:57.811 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=56; memory=256 GB; capacity=56; pollInterval=100ms; dumpInterval=5m
+Apr-23 21:16:57.814 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Apr-23 21:16:57.850 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SPACERANGER_COUNT': maxForks=0; fair=false; array=0
+Apr-23 21:16:57.916 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:BIN2CELL_SEGMENTATION` matches process BIN2CELL_SEGMENTATION
+Apr-23 21:16:57.919 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 21:16:57.920 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 21:16:57.922 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'BIN2CELL_SEGMENTATION': maxForks=0; fair=false; array=0
+Apr-23 21:16:57.931 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SEURAT_CLUSTERING` matches process SEURAT_CLUSTERING
+Apr-23 21:16:57.934 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 21:16:57.934 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 21:16:57.936 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SEURAT_CLUSTERING': maxForks=0; fair=false; array=0
+Apr-23 21:16:57.941 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SEURAT_CLUSTERING, SPACERANGER_COUNT, BIN2CELL_SEGMENTATION
+Apr-23 21:16:57.944 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Apr-23 21:16:57.947 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPACERANGER_COUNT
+Apr-23 21:16:57.948 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BIN2CELL_SEGMENTATION
+Apr-23 21:16:57.949 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SEURAT_CLUSTERING
+Apr-23 21:16:57.950 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_64a6bb0b6d269f64: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/bin2cell.nf
+  Script_0437c5aa81d47730: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/spaceranger.nf
+  Script_25495c34288d1201: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/seurat.nf
+  Script_a32b8499972afbb3: /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf
+Apr-23 21:16:57.950 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Apr-23 21:16:57.950 [main] DEBUG nextflow.Session - Session await
+Apr-23 21:16:58.240 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [5a/6f5462] Cached process > SPACERANGER_COUNT (Sample1)
+Apr-23 21:16:58.281 [Actor Thread 16] INFO  nextflow.Nextflow - SpaceRanger completed for sample: Sample1
+Apr-23 21:16:58.300 [Actor Thread 11] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 21:16:58.327 [Actor Thread 25] DEBUG nextflow.conda.CondaCache - conda found local env for environment=/home/data2/qiao/PKD/HD/visiumhd-nextflow/env/visiumhd.yml; path=/home/data2/qiao/PKD/HD/visiumhd-nextflow/.conda_cache/env-5adb9bb3fd88fda0fccd7deb91bb5ff4
+Apr-23 21:16:58.421 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-23 21:16:58.427 [Task submitter] INFO  nextflow.Session - [b0/99562f] Submitted process > BIN2CELL_SEGMENTATION (Sample1)
+Apr-23 21:21:58.000 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: RUNNING; exit: -; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:26:58.095 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: RUNNING; exit: -; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:31:58.134 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: RUNNING; exit: -; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:36:58.195 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: RUNNING; exit: -; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:41:58.223 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: RUNNING; exit: -; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:44:46.902 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: BIN2CELL_SEGMENTATION (Sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/b0/99562fcb9ae8013c21741b10b0f834]
+Apr-23 21:44:46.905 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 21:44:46.921 [Actor Thread 28] INFO  nextflow.Nextflow - bin2cell segmentation completed for sample: Sample1
+Apr-23 21:44:46.937 [Actor Thread 36] DEBUG nextflow.conda.CondaCache - conda found local env for environment=/home/data2/qiao/PKD/HD/visiumhd-nextflow/env/seurat.yml; path=/home/data2/qiao/PKD/HD/visiumhd-nextflow/.conda_cache/env-5d0255dcb2b3099b9977601ec731dd4b
+Apr-23 21:44:46.969 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-23 21:44:46.971 [Task submitter] INFO  nextflow.Session - [8f/7c2d70] Submitted process > SEURAT_CLUSTERING (Sample1)
+Apr-23 21:45:21.849 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: SEURAT_CLUSTERING (Sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/8f/7c2d701a506e7953853b0fe6136266]
+Apr-23 21:45:21.859 [main] DEBUG nextflow.Session - Session await > all processes finished
+Apr-23 21:45:21.951 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Apr-23 21:45:21.951 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Apr-23 21:45:21.957 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Apr-23 21:45:21.957 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Apr-23 21:45:21.962 [main] INFO  nextflow.Nextflow - 
+        =========================================
+        Pipeline execution completed successfully!
+        =========================================
+        Duration    : 28m 26s
+        Results dir : ./results
+        Mode        : Cellseg
+        
+        Output structure:
+        ./results/
+        ├── [sample_name]/
+        │   ├── spaceranger_[sample]/     # SpaceRanger outputs
+        │   │   ├── bin2cell_[sample]/        # Cell segmentation results
+        │   └── seurat_[sample]/          # Seurat analysis results
+        └── pipeline_info/
+            ├── timeline.html              # Execution timeline
+            ├── report.html                # Execution report
+            └── trace.txt                  # Execution trace
+        =========================================
+        
+Apr-23 21:45:21.973 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=1; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=3h 46m 23s; failedDuration=0ms; cachedDuration=1d 7h 43m 1s;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=8; peakMemory=128 GB; ]
+Apr-23 21:45:22.148 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Apr-23 21:45:22.148 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-23 21:45:22.861 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Apr-23 21:45:22.934 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Apr-23 21:45:22.970 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Apr-23 21:45:22.981 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Apr-23 21:45:22.981 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

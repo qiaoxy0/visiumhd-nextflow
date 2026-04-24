@@ -1,0 +1,430 @@
+Apr-23 16:10:51.255 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf -profile conda -w /home/data2/qiao/PKD/HD/visiumhd-nextflow/work -params-file my_run.yml
+Apr-23 16:10:51.360 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Apr-23 16:10:51.391 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/users/qiao/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Apr-23 16:10:51.441 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-23 16:10:51.443 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-23 16:10:51.446 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-23 16:10:51.463 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Apr-23 16:10:51.623 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-23 16:10:51.696 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 16:10:51.700 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 16:10:51.733 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `conda`
+Apr-23 16:10:52.656 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, conda]
+Apr-23 16:10:52.720 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-23 16:10:52.720 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-23 16:10:52.744 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/users/qiao/.nextflow/secrets/store.json
+Apr-23 16:10:52.748 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@713ec32d] - activable => nextflow.secret.LocalSecretsProvider@713ec32d
+Apr-23 16:10:52.752 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-23 16:10:52.777 [main] DEBUG nextflow.cli.CmdRun - Launching `/home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf` [mad_lamarr] DSL2 - revision: 68306be2a4
+Apr-23 16:10:52.847 [main] DEBUG nextflow.Session - Session UUID: 8b3b6694-c907-4cc3-8a16-7486cbf2f63f
+Apr-23 16:10:52.848 [main] DEBUG nextflow.Session - Run name: mad_lamarr
+Apr-23 16:10:52.849 [main] DEBUG nextflow.Session - Executor pool size: 56
+Apr-23 16:10:52.862 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-23 16:10:52.869 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 16:10:52.910 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (09:17 CDT)
+  System: Linux 5.4.0-187-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.14+1-b1367.22
+  Encoding: UTF-8 (UTF-8)
+  Process: 898720@humphreyslabserver.renalres.wustl.edu [10.24.70.13]
+  CPUs: 56 - Mem: 256 GB (76.6 GB) - Swap: 0 (0)
+Apr-23 16:10:52.945 [main] DEBUG nextflow.Session - Work-dir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work [ext2/ext3]
+Apr-23 16:10:52.984 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-23 16:10:52.997 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Apr-23 16:10:53.001 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Apr-23 16:10:53.067 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-23 16:10:53.086 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 57; maxThreads: 1000
+Apr-23 16:10:53.159 [main] DEBUG nextflow.Session - Session start
+Apr-23 16:10:53.168 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: ./results/pipeline_info/trace.txt
+Apr-23 16:10:54.051 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-23 16:10:54.402 [main] INFO  nextflow.Nextflow - 
+    =========================================
+    VisiumHD Processing Pipeline
+    =========================================
+    Input directory     : /home/data2/qiao/PKD/HD/Sample1
+    SpaceRanger ref     : /home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A
+    SpaceRanger exec    : spaceranger
+    Probe set           : /home/data2/qiao/PKD/script/0_run_spaceranger/spaceranger-4.0.1/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+    Output directory    : ./results
+    Processing mode     : Default
+    Microns per pixel   : 0.5
+    =========================================
+    Starting analysis...
+    
+Apr-23 16:10:54.486 [main] INFO  nextflow.Nextflow - Starting SpaceRanger analysis...
+Apr-23 16:10:54.516 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SPACERANGER_COUNT` matches process SPACERANGER_COUNT
+Apr-23 16:10:54.522 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 16:10:54.522 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 16:10:54.533 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Apr-23 16:10:54.541 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=56; memory=256 GB; capacity=56; pollInterval=100ms; dumpInterval=5m
+Apr-23 16:10:54.545 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Apr-23 16:10:54.572 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SPACERANGER_COUNT': maxForks=0; fair=false; array=0
+Apr-23 16:10:54.622 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SEURAT_CLUSTERING` matches process SEURAT_CLUSTERING
+Apr-23 16:10:54.624 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 16:10:54.624 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 16:10:54.626 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SEURAT_CLUSTERING': maxForks=0; fair=false; array=0
+Apr-23 16:10:54.633 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SEURAT_CLUSTERING, SPACERANGER_COUNT, BIN2CELL_SEGMENTATION
+Apr-23 16:10:54.636 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
+Apr-23 16:10:54.638 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPACERANGER_COUNT
+Apr-23 16:10:54.638 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SEURAT_CLUSTERING
+Apr-23 16:10:54.640 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_64a6bb0b6d269f64: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/bin2cell.nf
+  Script_0437c5aa81d47730: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/spaceranger.nf
+  Script_25495c34288d1201: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/seurat.nf
+  Script_a32b8499972afbb3: /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf
+Apr-23 16:10:54.640 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Apr-23 16:10:54.640 [main] DEBUG nextflow.Session - Session await
+Apr-23 16:10:54.864 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-23 16:10:54.867 [Task submitter] INFO  nextflow.Session - [2c/c8da93] Submitted process > SPACERANGER_COUNT (Sample1)
+Apr-23 16:12:00.842 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: SPACERANGER_COUNT (Sample1); status: COMPLETED; exit: 1; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/2c/c8da93b0987136dcdd83a3748af474]
+Apr-23 16:12:00.843 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 16:12:00.860 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SPACERANGER_COUNT (Sample1); work-dir=/home/data2/qiao/PKD/HD/visiumhd-nextflow/work/2c/c8da93b0987136dcdd83a3748af474
+  error [nextflow.exception.ProcessFailedException]: Process `SPACERANGER_COUNT (Sample1)` terminated with an error exit status (1)
+Apr-23 16:12:00.902 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SPACERANGER_COUNT (Sample1)'
+
+Caused by:
+  Process `SPACERANGER_COUNT (Sample1)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  # Convert sample_dir to absolute path
+  SAMPLE_DIR_ABS=$(realpath "Sample1")
+  if [[ ! -d "$SAMPLE_DIR_ABS" ]]; then
+      echo "[ERROR] Directory not found: $SAMPLE_DIR_ABS"
+      exit 1
+  fi
+  
+  # Check if SpaceRanger is available
+  if ! command -v spaceranger &> /dev/null; then
+      echo "ERROR: SpaceRanger not found!"
+      echo "Download from: https://support.10xgenomics.com/spatial-gene-expression/software/downloads/latest"
+      exit 1
+  fi
+  
+  # Display SpaceRanger version
+  spaceranger --version
+  
+  # Calculate memory for SpaceRanger (reserve 10% for system)
+  # SpaceRanger expects memory in GB as integer
+  TOTAL_MEM_GB=$(echo "256 GB" | sed 's/\.GB//' | sed 's/GB//' | sed 's/ //')
+  SPACERANGER_MEM=$(python3 -c "import math; print(int(math.floor(float('$TOTAL_MEM_GB') * 0.9)))")
+  
+  echo "[INFO] Total allocated memory: 256 GB"
+  echo "[INFO] Memory for SpaceRanger: ${SPACERANGER_MEM} GB"
+  echo "[INFO] CPUs allocated: 32"
+  
+  echo "[INFO] Sample: Sample1"
+  echo "[INFO] Sample dir: Sample1"
+  echo "[INFO] Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv"
+  
+  # Find required input files
+  FASTQ_DIR="$(find "$SAMPLE_DIR_ABS" -type f -name '*.fastq.gz' -print -quit | xargs -r dirname || true)"
+  if [[ -z "$FASTQ_DIR" ]]; then
+      echo "[ERROR] No FASTQ files (*.fastq.gz) found under $SAMPLE_DIR_ABS"
+      exit 2
+  fi
+  echo "[DEBUG] FASTQ_DIR: $FASTQ_DIR"
+  
+  # Loupe alignment JSON (if present)
+  LOUPE_ALIGNMENT="$(find "$SAMPLE_DIR_ABS" -type f -name '*.json' -print -quit || true)"
+  echo "[DEBUG] LOUPE_ALIGNMENT: $LOUPE_ALIGNMENT"
+  
+  # Select hi-res image = largest tif; pick CytAssist by name if present, otherwise smallest tif
+  HI_RES_IMAGE="$(find "$SAMPLE_DIR_ABS" -type f \( -name '*.tif' -o -name '*.tiff' \) -printf '%s\t%p\n' | sort -nr | head -n1 | cut -f2- || true)"
+  CYTASSIST_IMAGE="$(find "$SAMPLE_DIR_ABS" -type f \( -name '*[Cc]yt[Aa]ssist*.tif' -o -name '*[Cc]yt[Aa]ssist*.tiff' \) -print -quit || true)"
+  if [[ -z "$CYTASSIST_IMAGE" ]]; then
+      CYTASSIST_IMAGE="$(find "$SAMPLE_DIR_ABS" -type f \( -name '*.tif' -o -name '*.tiff' \) -printf '%s\t%p\n' | sort -n | head -n1 | cut -f2- || true)"
+  fi
+  echo "[DEBUG] HI_RES_IMAGE: $HI_RES_IMAGE"
+  echo "[DEBUG] CYTASSIST_IMAGE: $CYTASSIST_IMAGE"
+  
+  # Copy hi-res to stable name for downstream
+  if [[ -n "$HI_RES_IMAGE" ]]; then
+      cp "$HI_RES_IMAGE" original_image.tif
+  else
+      echo "[WARNING] No hi-res image found, creating empty original_image.tif"
+      touch original_image.tif
+  fi
+  
+  # Parse slide/area from the loupe basename if possible
+  SLIDE_ID=""
+  AREA=""
+  if [[ -n "$LOUPE_ALIGNMENT" ]]; then
+      BASENAME=$(basename "$LOUPE_ALIGNMENT" .json)
+      # Split basename by '-' and extract slide ID (first two fields) and area (third field)
+      IFS='-' read -r SLIDE_PREFIX SLIDE_CODE SLIDE_AREA _ <<< "$BASENAME" || true
+      SLIDE_ID="${SLIDE_PREFIX}-${SLIDE_CODE}"
+      AREA="$SLIDE_AREA"
+      if [[ -z "$SLIDE_ID" || -z "$AREA" ]]; then
+          echo "[WARNING] Could not parse SLIDE_ID or AREA from $LOUPE_ALIGNMENT"
+      fi
+  fi
+  echo "[DEBUG] SLIDE_ID: $SLIDE_ID"
+  echo "[DEBUG] AREA: $AREA"
+  
+  echo "===================================="
+  echo "Processing sample: Sample1"
+  echo "FASTQ directory: $FASTQ_DIR"
+  echo "Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv"
+  echo "Loupe alignment: $LOUPE_ALIGNMENT"
+  echo "Hi-res image: $HI_RES_IMAGE"
+  echo "CytAssist image: $CYTASSIST_IMAGE"
+  echo "Slide ID: $SLIDE_ID"
+  echo "Area: $AREA"
+  echo "Memory: ${SPACERANGER_MEM} GB"
+  echo "===================================="
+  
+  # Build the spaceranger command and only include optional args when available
+  CMD=(spaceranger count --id=spaceranger_Sample1 --transcriptome=refdata-gex-mm10-2020-A --probe-set=Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv --fastqs="$FASTQ_DIR" --create-bam=false --localcores=32 --localmem=${SPACERANGER_MEM})
+  
+  [[ -n "$HI_RES_IMAGE" ]]      && CMD+=(--image "$HI_RES_IMAGE")
+  [[ -n "$CYTASSIST_IMAGE" ]]   && CMD+=(--cytaimage "$CYTASSIST_IMAGE")
+  [[ -n "$LOUPE_ALIGNMENT" ]]   && CMD+=(--loupe-alignment "$LOUPE_ALIGNMENT")
+  [[ -n "$SLIDE_ID" ]]          && CMD+=(--slide "$SLIDE_ID")
+  [[ -n "$AREA" ]]              && CMD+=(--area "$AREA")
+  
+  echo "[INFO] Running: ${CMD[*]}"
+  "${CMD[@]}"
+  
+  echo "[INFO] SpaceRanger finished for Sample1"
+
+Command exit status:
+  1
+
+Command output:
+  [INFO] Sample dir: Sample1
+  [INFO] Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+  [DEBUG] FASTQ_DIR: /home/data2/qiao/PKD/HD/Sample1
+  [DEBUG] LOUPE_ALIGNMENT: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+  [DEBUG] HI_RES_IMAGE: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+  [DEBUG] CYTASSIST_IMAGE: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+  [DEBUG] SLIDE_ID: H1-YPBRWDG
+  [DEBUG] AREA: A1
+  ====================================
+  Processing sample: Sample1
+  FASTQ directory: /home/data2/qiao/PKD/HD/Sample1
+  Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+  Loupe alignment: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+  Hi-res image: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+  CytAssist image: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+  Slide ID: H1-YPBRWDG
+  Area: A1
+  Memory: 230 GB
+  ====================================
+  [INFO] Running: spaceranger count --id=spaceranger_Sample1 --transcriptome=refdata-gex-mm10-2020-A --probe-set=Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv --fastqs=/home/data2/qiao/PKD/HD/Sample1 --create-bam=false --localcores=32 --localmem=230 --image /home/data2/qiao/PKD/HD/Sample1/HE.tif --cytaimage /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif --loupe-alignment /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json --slide H1-YPBRWDG --area A1
+  Martian Runtime - v4.0.14
+  2026-04-23 16:10:56 [jobmngr] WARNING: configured to use 230GB of local memory, but only 152.2GB is currently available.
+  Serving UI at http://humphreyslabserver.renalres.wustl.edu:34603?auth=sOmU0XTrlo5Zb97btVwOOLwRlezUarX7Chx7Ox81Uic
+  
+  Running preflight checks (please wait)...
+  Checking sample info...
+  Checking FASTQ folder...
+  Checking reference...
+  Checking reference_path (/home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A) on humphreyslabserver.renalres.wustl.edu...
+  Checking read 2 length...
+  Checking optional arguments...
+  mro: v4.0.14
+  mrp: v4.0.14
+  python: Python 3.12.3
+  numpy: 1.26.4
+  scipy: 1.14.1
+  pysam: 0.22.1
+  h5py: 3.13.0
+  pandas: 2.2.3
+  STAR: 2.7.2a
+  samtools: samtools 1.16.1
+  
+  [error] The reference genome of the transcriptome 'mm10' and probe set 'GRCm39' must be identical.
+  
+  2026-04-23 16:12:00 Shutting down.
+  Saving pipestance info to "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+  For assistance, upload this file to 10x Genomics by running:
+  
+  spaceranger upload <your_email> "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+
+Command error:
+  [DEBUG] FASTQ_DIR: /home/data2/qiao/PKD/HD/Sample1
+  [DEBUG] LOUPE_ALIGNMENT: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+  [DEBUG] HI_RES_IMAGE: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+  [DEBUG] CYTASSIST_IMAGE: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+  [DEBUG] SLIDE_ID: H1-YPBRWDG
+  [DEBUG] AREA: A1
+  ====================================
+  Processing sample: Sample1
+  FASTQ directory: /home/data2/qiao/PKD/HD/Sample1
+  Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+  Loupe alignment: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+  Hi-res image: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+  CytAssist image: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+  Slide ID: H1-YPBRWDG
+  Area: A1
+  Memory: 230 GB
+  ====================================
+  [INFO] Running: spaceranger count --id=spaceranger_Sample1 --transcriptome=refdata-gex-mm10-2020-A --probe-set=Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv --fastqs=/home/data2/qiao/PKD/HD/Sample1 --create-bam=false --localcores=32 --localmem=230 --image /home/data2/qiao/PKD/HD/Sample1/HE.tif --cytaimage /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif --loupe-alignment /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json --slide H1-YPBRWDG --area A1
+  
+  
+  Martian Runtime - v4.0.14
+  2026-04-23 16:10:56 [jobmngr] WARNING: configured to use 230GB of local memory, but only 152.2GB is currently available.
+  Serving UI at http://humphreyslabserver.renalres.wustl.edu:34603?auth=sOmU0XTrlo5Zb97btVwOOLwRlezUarX7Chx7Ox81Uic
+  
+  Running preflight checks (please wait)...
+  Checking sample info...
+  Checking FASTQ folder...
+  Checking reference...
+  Checking reference_path (/home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A) on humphreyslabserver.renalres.wustl.edu...
+  Checking read 2 length...
+  Checking optional arguments...
+  mro: v4.0.14
+  mrp: v4.0.14
+  python: Python 3.12.3
+  numpy: 1.26.4
+  scipy: 1.14.1
+  pysam: 0.22.1
+  h5py: 3.13.0
+  pandas: 2.2.3
+  STAR: 2.7.2a
+  samtools: samtools 1.16.1
+  
+  [error] The reference genome of the transcriptome 'mm10' and probe set 'GRCm39' must be identical.
+  
+  2026-04-23 16:12:00 Shutting down.
+  Saving pipestance info to "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+  For assistance, upload this file to 10x Genomics by running:
+  
+  spaceranger upload <your_email> "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+
+Work dir:
+  /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/2c/c8da93b0987136dcdd83a3748af474
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Apr-23 16:12:00.917 [main] DEBUG nextflow.Session - Session await > all processes finished
+Apr-23 16:12:00.939 [TaskFinalizer-1] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Apr-23 16:12:00.950 [TaskFinalizer-1] ERROR nextflow.Nextflow - 
+    =========================================
+    Pipeline error occurred!
+    =========================================
+    Error: [DEBUG] FASTQ_DIR: /home/data2/qiao/PKD/HD/Sample1
+[DEBUG] LOUPE_ALIGNMENT: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+[DEBUG] HI_RES_IMAGE: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+[DEBUG] CYTASSIST_IMAGE: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+[DEBUG] SLIDE_ID: H1-YPBRWDG
+[DEBUG] AREA: A1
+====================================
+Processing sample: Sample1
+FASTQ directory: /home/data2/qiao/PKD/HD/Sample1
+Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+Loupe alignment: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+Hi-res image: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+CytAssist image: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+Slide ID: H1-YPBRWDG
+Area: A1
+Memory: 230 GB
+====================================
+[INFO] Running: spaceranger count --id=spaceranger_Sample1 --transcriptome=refdata-gex-mm10-2020-A --probe-set=Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv --fastqs=/home/data2/qiao/PKD/HD/Sample1 --create-bam=false --localcores=32 --localmem=230 --image /home/data2/qiao/PKD/HD/Sample1/HE.tif --cytaimage /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif --loupe-alignment /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json --slide H1-YPBRWDG --area A1
+
+
+Martian Runtime - v4.0.14
+2026-04-23 16:10:56 [jobmngr] WARNING: configured to use 230GB of local memory, but only 152.2GB is currently available.
+Serving UI at http://humphreyslabserver.renalres.wustl.edu:34603?auth=sOmU0XTrlo5Zb97btVwOOLwRlezUarX7Chx7Ox81Uic
+
+Running preflight checks (please wait)...
+Checking sample info...
+Checking FASTQ folder...
+Checking reference...
+Checking reference_path (/home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A) on humphreyslabserver.renalres.wustl.edu...
+Checking read 2 length...
+Checking optional arguments...
+mro: v4.0.14
+mrp: v4.0.14
+python: Python 3.12.3
+numpy: 1.26.4
+scipy: 1.14.1
+pysam: 0.22.1
+h5py: 3.13.0
+pandas: 2.2.3
+STAR: 2.7.2a
+samtools: samtools 1.16.1
+
+[error] The reference genome of the transcriptome 'mm10' and probe set 'GRCm39' must be identical.
+
+2026-04-23 16:12:00 Shutting down.
+Saving pipestance info to "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+For assistance, upload this file to 10x Genomics by running:
+
+spaceranger upload <your_email> "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+    Check the .nextflow.log file for details
+    =========================================
+    
+Apr-23 16:12:00.953 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Apr-23 16:12:00.953 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Apr-23 16:12:00.956 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Apr-23 16:12:00.958 [main] ERROR nextflow.Nextflow - 
+        =========================================
+        Pipeline execution failed!
+        =========================================
+        Error message: [DEBUG] FASTQ_DIR: /home/data2/qiao/PKD/HD/Sample1
+[DEBUG] LOUPE_ALIGNMENT: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+[DEBUG] HI_RES_IMAGE: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+[DEBUG] CYTASSIST_IMAGE: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+[DEBUG] SLIDE_ID: H1-YPBRWDG
+[DEBUG] AREA: A1
+====================================
+Processing sample: Sample1
+FASTQ directory: /home/data2/qiao/PKD/HD/Sample1
+Probe set: Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv
+Loupe alignment: /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json
+Hi-res image: /home/data2/qiao/PKD/HD/Sample1/HE.tif
+CytAssist image: /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif
+Slide ID: H1-YPBRWDG
+Area: A1
+Memory: 230 GB
+====================================
+[INFO] Running: spaceranger count --id=spaceranger_Sample1 --transcriptome=refdata-gex-mm10-2020-A --probe-set=Visium_Mouse_Transcriptome_Probe_Set_v2.1.0_GRCm39-2024-A.csv --fastqs=/home/data2/qiao/PKD/HD/Sample1 --create-bam=false --localcores=32 --localmem=230 --image /home/data2/qiao/PKD/HD/Sample1/HE.tif --cytaimage /home/data2/qiao/PKD/HD/Sample1/CytAssist.tif --loupe-alignment /home/data2/qiao/PKD/HD/Sample1/H1-YPBRWDG-A1-fiducials-image-registration.json --slide H1-YPBRWDG --area A1
+
+
+Martian Runtime - v4.0.14
+2026-04-23 16:10:56 [jobmngr] WARNING: configured to use 230GB of local memory, but only 152.2GB is currently available.
+Serving UI at http://humphreyslabserver.renalres.wustl.edu:34603?auth=sOmU0XTrlo5Zb97btVwOOLwRlezUarX7Chx7Ox81Uic
+
+Running preflight checks (please wait)...
+Checking sample info...
+Checking FASTQ folder...
+Checking reference...
+Checking reference_path (/home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A) on humphreyslabserver.renalres.wustl.edu...
+Checking read 2 length...
+Checking optional arguments...
+mro: v4.0.14
+mrp: v4.0.14
+python: Python 3.12.3
+numpy: 1.26.4
+scipy: 1.14.1
+pysam: 0.22.1
+h5py: 3.13.0
+pandas: 2.2.3
+STAR: 2.7.2a
+samtools: samtools 1.16.1
+
+[error] The reference genome of the transcriptome 'mm10' and probe set 'GRCm39' must be identical.
+
+2026-04-23 16:12:00 Shutting down.
+Saving pipestance info to "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+For assistance, upload this file to 10x Genomics by running:
+
+spaceranger upload <your_email> "spaceranger_Sample1/spaceranger_Sample1.mri.tgz"
+        Check the logs for more details.
+        
+        To resume the pipeline, run:
+        nextflow run main.nf -resume [your parameters]
+        =========================================
+        
+Apr-23 16:12:00.976 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=35m 8s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=32; peakMemory=256 GB; ]
+Apr-23 16:12:01.227 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Apr-23 16:12:01.227 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-23 16:12:02.174 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Apr-23 16:12:02.255 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Apr-23 16:12:02.263 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Apr-23 16:12:02.277 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Apr-23 16:12:02.278 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

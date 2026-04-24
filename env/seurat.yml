@@ -4,9 +4,8 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  # R and core dependencies
-  - r-base=4.3
-  - r-seurat=5
+  - r-base>=4.1,<4.5
+  - r-seurat>=5
   - r-matrix
   - r-ggplot2
   - r-dplyr
@@ -15,4 +14,3 @@ dependencies:
   - r-remotes
   - r-devtools
   - r-hdf5r
-  - r-bpcells

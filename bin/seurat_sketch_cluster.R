@@ -21,8 +21,10 @@ if (!requireNamespace("Seurat", quietly = TRUE)) {
 
 # Verify installation
 library(Seurat)
-cat("Seurat version:", as.character(packageVersion("Seurat")), "\n")
+packageVersion("Seurat")
 
+
+library(Seurat)
 library(dplyr)
 library(ggplot2)
 library(Matrix)
@@ -31,12 +33,12 @@ library(Matrix)
 args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) != 5) {
-    cat("Usage: Rscript seurat_sketch_cluster.R <sample_id> <input_path> <output_dir> <prefix> <option>\n")
+    cat("Usage: Rscript seurat_analysis.R <sample_id> <input_path> <output_dir> <prefix> <data_type>\n")
     cat("  sample_id:   Sample identifier\n")
     cat("  input_path:  Path to input directory (bin2cell output or spaceranger outs)\n")
     cat("  output_dir:  Output directory for results\n")
     cat("  prefix:      Prefix for cell IDs\n")
-    cat("  option:      'Cellseg' for bin2cell output or 'Default' for spaceranger output\n")
+    cat("  option:   'Cellseg' for bin2cell output or 'Default' for spaceranger output\n")
     quit(status = 1)
 }
 
@@ -64,8 +66,8 @@ load_bin2cell_data <- function(prefix, path, ident) {
     
     count_files <- c("adata_count.mtx")
     genes_files <- c("adata_genes.csv")
-    cells_files <- c("adata_cells.csv")
-    meta_files <- c("adata_meta.csv")
+    cells_files <- c( "adata_cells.csv")
+    meta_files <- c( "adata_meta.csv")
     
     # Find the actual files
     count_file <- NULL
@@ -156,9 +158,7 @@ load_spaceranger_data <- function(prefix, path, ident) {
     
     # Look for the filtered feature matrix in different possible locations
     possible_paths <- c(
-        file.path(path, "segmented_outputs", "filtered_feature_bc_matrix.h5"),
-        file.path(path, "filtered_feature_bc_matrix.h5"),
-        file.path(path, "binned_outputs", "square_008um", "filtered_feature_bc_matrix.h5")
+        file.path(path, "segmented_outputs", "filtered_feature_bc_matrix.h5")
     )
     
     # Find the first existing path
@@ -179,10 +179,9 @@ load_spaceranger_data <- function(prefix, path, ident) {
     
     # Read the 10X data
     if (grepl("\\.h5$", data_path)) {
+        # Read h5 file
         counts <- Read10X_h5(data_path)
-    } else {
-        stop("Unsupported file format. Expected .h5 file, got: ", data_path)
-    }
+    } 
     
     cat("Count matrix dimensions:", nrow(counts), "genes x", ncol(counts), "cells\n")
     
@@ -287,7 +286,7 @@ if (option == "Cellseg") {
 } else if (option == "Default") {
     data <- load_spaceranger_data(prefix = prefix, path = input_path, ident = sample_id)
 } else {
-    stop("Invalid option. Must be 'Cellseg' or 'Default', got: '", option, "'")
+    stop("Invalid data_type. Must be 'segmented' or 'spaceranger'")
 }
 
 # Run sketch analysis
@@ -318,10 +317,9 @@ meta_file <- file.path(output_dir, paste0(sample_id, "_seurat_meta.csv"))
 write.csv(object@meta.data, meta_file)
 
 # Save UMAP coordinates
-umap_coords <- NULL
 if ("full.umap.sketch" %in% names(object@reductions)) {
     umap_coords <- object@reductions$full.umap.sketch@cell.embeddings
-}
+} 
 
 if (!is.null(umap_coords)) {
     umap_file <- file.path(output_dir, paste0(sample_id, "_seurat_umap.csv"))

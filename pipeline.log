@@ -1,0 +1,29 @@
+nohup: ignoring input
+Using params file: my_run.yml
+
+===========================================
+ VisiumHD Processing Pipeline
+ Pipeline : /home/data2/qiao/PKD/HD/visiumhd-nextflow
+ Work dir : /home/data2/qiao/PKD/HD/visiumhd-nextflow/work
+===========================================
+
+
+[1m[38;5;232m[48;5;43m N E X T F L O W [0;2m  ~  [mversion 25.10.4[m
+[K
+Launching[35m `/home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf` [0;2m[[0;1;36mexotic_neumann[0;2m] DSL2 - [36mrevision: [0;36m68306be2a4[m
+[K
+
+    =========================================
+    VisiumHD Processing Pipeline
+    =========================================
+    Input directory     : /home/data2/qiao/PKD/HD/Sample1
+    SpaceRanger ref     : /home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A
+    SpaceRanger exec    : spaceranger
+    Probe set           : /home/data2/qiao/PKD/script/0_run_spaceranger/spaceranger-4.0.1/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.0_mm10-2020-A.csv
+    Output directory    : ./results
+    Processing mode     : Cellseg
+    Microns per pixel   : 0.5
+    =========================================
+    Starting analysis...
+    
+Starting SpaceRanger analysis...

@@ -1,0 +1,256 @@
+Apr-23 19:44:06.028 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf -profile conda -w /home/data2/qiao/PKD/HD/visiumhd-nextflow/work -params-file my_run.yml -resume
+Apr-23 19:44:06.143 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Apr-23 19:44:06.171 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/users/qiao/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Apr-23 19:44:06.198 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-23 19:44:06.199 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-23 19:44:06.202 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-23 19:44:06.219 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Apr-23 19:44:06.380 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-23 19:44:06.450 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 19:44:06.454 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 19:44:06.484 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `conda`
+Apr-23 19:44:07.331 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, conda]
+Apr-23 19:44:07.380 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-23 19:44:07.380 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-23 19:44:07.397 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/users/qiao/.nextflow/secrets/store.json
+Apr-23 19:44:07.401 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@36aab105] - activable => nextflow.secret.LocalSecretsProvider@36aab105
+Apr-23 19:44:07.404 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-23 19:44:07.422 [main] DEBUG nextflow.cli.CmdRun - Launching `/home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf` [cranky_sammet] DSL2 - revision: 68306be2a4
+Apr-23 19:44:07.476 [main] DEBUG nextflow.Session - Session UUID: 44bc3442-7ee6-4009-82ae-5a88741d317e
+Apr-23 19:44:07.476 [main] DEBUG nextflow.Session - Run name: cranky_sammet
+Apr-23 19:44:07.477 [main] DEBUG nextflow.Session - Executor pool size: 56
+Apr-23 19:44:07.487 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-23 19:44:07.492 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 19:44:07.528 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (09:17 CDT)
+  System: Linux 5.4.0-187-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.14+1-b1367.22
+  Encoding: UTF-8 (UTF-8)
+  Process: 995021@humphreyslabserver.renalres.wustl.edu [10.24.70.12]
+  CPUs: 56 - Mem: 256 GB (21.7 GB) - Swap: 0 (0)
+Apr-23 19:44:07.570 [main] DEBUG nextflow.Session - Work-dir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work [ext2/ext3]
+Apr-23 19:44:07.607 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-23 19:44:07.619 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Apr-23 19:44:07.623 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Apr-23 19:44:07.691 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-23 19:44:07.708 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 57; maxThreads: 1000
+Apr-23 19:44:07.786 [main] DEBUG nextflow.Session - Session start
+Apr-23 19:44:07.793 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: ./results/pipeline_info/trace.txt
+Apr-23 19:44:08.597 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-23 19:44:09.002 [main] INFO  nextflow.Nextflow - 
+    =========================================
+    VisiumHD Processing Pipeline
+    =========================================
+    Input directory     : /home/data2/qiao/PKD/HD/Sample1
+    SpaceRanger ref     : /home/data2/qiao/PKD/script/0_run_spaceranger/refdata-gex-mm10-2020-A
+    SpaceRanger exec    : spaceranger
+    Probe set           : /home/data2/qiao/PKD/script/0_run_spaceranger/spaceranger-4.0.1/probe_sets/Visium_Mouse_Transcriptome_Probe_Set_v2.0_mm10-2020-A.csv
+    Output directory    : ./results
+    Processing mode     : Default
+    Microns per pixel   : 0.5
+    =========================================
+    Starting analysis...
+    
+Apr-23 19:44:09.107 [main] INFO  nextflow.Nextflow - Starting SpaceRanger analysis...
+Apr-23 19:44:09.146 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SPACERANGER_COUNT` matches process SPACERANGER_COUNT
+Apr-23 19:44:09.153 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 19:44:09.153 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 19:44:09.167 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Apr-23 19:44:09.176 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=56; memory=256 GB; capacity=56; pollInterval=100ms; dumpInterval=5m
+Apr-23 19:44:09.180 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Apr-23 19:44:09.212 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SPACERANGER_COUNT': maxForks=0; fair=false; array=0
+Apr-23 19:44:09.269 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SEURAT_CLUSTERING` matches process SEURAT_CLUSTERING
+Apr-23 19:44:09.272 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Apr-23 19:44:09.272 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-23 19:44:09.274 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SEURAT_CLUSTERING': maxForks=0; fair=false; array=0
+Apr-23 19:44:09.280 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SEURAT_CLUSTERING, SPACERANGER_COUNT, BIN2CELL_SEGMENTATION
+Apr-23 19:44:09.284 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
+Apr-23 19:44:09.285 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPACERANGER_COUNT
+Apr-23 19:44:09.286 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SEURAT_CLUSTERING
+Apr-23 19:44:09.287 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_64a6bb0b6d269f64: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/bin2cell.nf
+  Script_0437c5aa81d47730: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/spaceranger.nf
+  Script_25495c34288d1201: /home/data2/qiao/PKD/HD/visiumhd-nextflow/modules/seurat.nf
+  Script_a32b8499972afbb3: /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf
+Apr-23 19:44:09.287 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Apr-23 19:44:09.287 [main] DEBUG nextflow.Session - Session await
+Apr-23 19:44:09.607 [Actor Thread 10] INFO  nextflow.processor.TaskProcessor - [21/80a3ae] Cached process > SPACERANGER_COUNT (Sample1)
+Apr-23 19:44:09.663 [Actor Thread 15] INFO  nextflow.Nextflow - SpaceRanger completed for sample: Sample1
+Apr-23 19:44:09.690 [Actor Thread 19] DEBUG nextflow.conda.CondaCache - conda found local env for environment=/home/data2/qiao/PKD/HD/visiumhd-nextflow/env/seurat.yml; path=/home/data2/qiao/PKD/HD/visiumhd-nextflow/.conda_cache/env-5d0255dcb2b3099b9977601ec731dd4b
+Apr-23 19:44:09.695 [Actor Thread 10] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 19:44:09.775 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-23 19:44:09.777 [Task submitter] INFO  nextflow.Session - [f6/646909] Submitted process > SEURAT_CLUSTERING (Sample1)
+Apr-23 19:44:18.016 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: SEURAT_CLUSTERING (Sample1); status: COMPLETED; exit: 1; error: -; workDir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/f6/6469097085d675a430808ef8283f01]
+Apr-23 19:44:18.017 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 19:44:18.034 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SEURAT_CLUSTERING (Sample1); work-dir=/home/data2/qiao/PKD/HD/visiumhd-nextflow/work/f6/6469097085d675a430808ef8283f01
+  error [nextflow.exception.ProcessFailedException]: Process `SEURAT_CLUSTERING (Sample1)` terminated with an error exit status (1)
+Apr-23 19:44:18.056 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SEURAT_CLUSTERING (Sample1)'
+
+Caused by:
+  Process `SEURAT_CLUSTERING (Sample1)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  # Create output directory
+  mkdir -p seurat_Sample1
+  
+  # Run Seurat analysis using the unified script
+  # Arguments: sample_id, input_path, output_dir, prefix, option
+  Rscript /home/data2/qiao/PKD/HD/visiumhd-nextflow/bin/seurat_sketch_cluster.R \
+      Sample1 \
+      outs \
+      seurat_Sample1 \
+      Sample1 \
+      Default
+  
+  echo "Seurat analysis completed for sample Sample1 (Default)"
+
+Command exit status:
+  1
+
+Command output:
+  [1] ‘5.4.0’
+  Processing sample: Sample1 
+  Input path: outs 
+  Output directory: seurat_Sample1 
+  Cell ID prefix: Sample1 
+  Pipeline option: Default 
+  Starting Seurat analysis for sample: Sample1 
+  Loading SpaceRanger data from: outs 
+
+Command error:
+  Loading required package: SeuratObject
+  Loading required package: sp
+  
+  Attaching package: ‘SeuratObject’
+  
+  The following objects are masked from ‘package:base’:
+  
+      intersect, t
+  
+  [1] ‘5.4.0’
+  
+  Attaching package: ‘dplyr’
+  
+  The following objects are masked from ‘package:stats’:
+  
+      filter, lag
+  
+  The following objects are masked from ‘package:base’:
+  
+      intersect, setdiff, setequal, union
+  
+  Processing sample: Sample1 
+  Input path: outs 
+  Output directory: seurat_Sample1 
+  Cell ID prefix: Sample1 
+  Pipeline option: Default 
+  Starting Seurat analysis for sample: Sample1 
+  Loading SpaceRanger data from: outs 
+  Error in load_spaceranger_data(prefix = prefix, path = input_path, ident = sample_id) : 
+    Could not find filtered_feature_bc_matrix in any of these locations:
+  outs/segmented_outputs/filtered_feature_bc_matrix.h5
+  Execution halted
+
+Work dir:
+  /home/data2/qiao/PKD/HD/visiumhd-nextflow/work/f6/6469097085d675a430808ef8283f01
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Apr-23 19:44:18.061 [main] DEBUG nextflow.Session - Session await > all processes finished
+Apr-23 19:44:18.065 [TaskFinalizer-1] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Apr-23 19:44:18.082 [TaskFinalizer-1] ERROR nextflow.Nextflow - 
+    =========================================
+    Pipeline error occurred!
+    =========================================
+    Error: Loading required package: SeuratObject
+Loading required package: sp
+
+Attaching package: ‘SeuratObject’
+
+The following objects are masked from ‘package:base’:
+
+    intersect, t
+
+[1] ‘5.4.0’
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Processing sample: Sample1 
+Input path: outs 
+Output directory: seurat_Sample1 
+Cell ID prefix: Sample1 
+Pipeline option: Default 
+Starting Seurat analysis for sample: Sample1 
+Loading SpaceRanger data from: outs 
+Error in load_spaceranger_data(prefix = prefix, path = input_path, ident = sample_id) : 
+  Could not find filtered_feature_bc_matrix in any of these locations:
+outs/segmented_outputs/filtered_feature_bc_matrix.h5
+Execution halted
+    Check the .nextflow.log file for details
+    =========================================
+    
+Apr-23 19:44:18.082 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Apr-23 19:44:18.083 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Apr-23 19:44:18.087 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Apr-23 19:44:18.087 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Apr-23 19:44:18.090 [main] ERROR nextflow.Nextflow - 
+        =========================================
+        Pipeline execution failed!
+        =========================================
+        Error message: Loading required package: SeuratObject
+Loading required package: sp
+
+Attaching package: ‘SeuratObject’
+
+The following objects are masked from ‘package:base’:
+
+    intersect, t
+
+[1] ‘5.4.0’
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Processing sample: Sample1 
+Input path: outs 
+Output directory: seurat_Sample1 
+Cell ID prefix: Sample1 
+Pipeline option: Default 
+Starting Seurat analysis for sample: Sample1 
+Loading SpaceRanger data from: outs 
+Error in load_spaceranger_data(prefix = prefix, path = input_path, ident = sample_id) : 
+  Could not find filtered_feature_bc_matrix in any of these locations:
+outs/segmented_outputs/filtered_feature_bc_matrix.h5
+Execution halted
+        Check the logs for more details.
+        
+        To resume the pipeline, run:
+        nextflow run main.nf -resume [your parameters]
+        =========================================
+        
+Apr-23 19:44:18.100 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=1; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=1m 5s; cachedDuration=1d 7h 28m 45s;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=8; peakMemory=256 GB; ]
+Apr-23 19:44:18.335 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Apr-23 19:44:18.335 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-23 19:44:19.467 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Apr-23 19:44:19.556 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Apr-23 19:44:19.571 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Apr-23 19:44:19.587 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Apr-23 19:44:19.587 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

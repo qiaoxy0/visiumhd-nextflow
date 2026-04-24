@@ -1,0 +1,62 @@
+Apr-23 19:42:00.098 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -resume 68306be2a4
+Apr-23 19:42:00.271 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Apr-23 19:42:00.308 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/users/qiao/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Apr-23 19:42:00.339 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-23 19:42:00.340 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-23 19:42:00.344 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-23 19:42:00.365 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Apr-23 19:42:00.606 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-23 19:42:00.653 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 19:42:00.657 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data2/qiao/PKD/HD/visiumhd-nextflow/nextflow.config
+Apr-23 19:42:00.698 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Apr-23 19:42:01.644 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-23 19:42:01.644 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-23 19:42:01.663 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/users/qiao/.nextflow/secrets/store.json
+Apr-23 19:42:01.666 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5d342959] - activable => nextflow.secret.LocalSecretsProvider@5d342959
+Apr-23 19:42:01.680 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-23 19:42:01.701 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [friendly_ardinghelli] DSL2 - revision: 68306be2a4
+Apr-23 19:42:01.757 [main] DEBUG nextflow.Session - Session UUID: 44bc3442-7ee6-4009-82ae-5a88741d317e
+Apr-23 19:42:01.757 [main] DEBUG nextflow.Session - Run name: friendly_ardinghelli
+Apr-23 19:42:01.758 [main] DEBUG nextflow.Session - Executor pool size: 56
+Apr-23 19:42:01.768 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-23 19:42:01.774 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=168; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-23 19:42:01.805 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (09:17 CDT)
+  System: Linux 5.4.0-187-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.14+1-b1367.22
+  Encoding: UTF-8 (UTF-8)
+  Process: 994873@humphreyslabserver.renalres.wustl.edu [10.24.70.13]
+  CPUs: 56 - Mem: 256 GB (21.7 GB) - Swap: 0 (0)
+Apr-23 19:42:01.843 [main] DEBUG nextflow.Session - Work-dir: /home/data2/qiao/PKD/HD/visiumhd-nextflow/work [ext2/ext3]
+Apr-23 19:42:01.878 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-23 19:42:01.889 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Apr-23 19:42:01.892 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Apr-23 19:42:01.960 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-23 19:42:01.971 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 57; maxThreads: 1000
+Apr-23 19:42:02.047 [main] DEBUG nextflow.Session - Session start
+Apr-23 19:42:02.055 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: ./results/pipeline_info/trace.txt
+Apr-23 19:42:02.800 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-23 19:42:02.811 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_a32b8499972afbb3: /home/data2/qiao/PKD/HD/visiumhd-nextflow/main.nf
+Apr-23 19:42:02.812 [main] DEBUG nextflow.Session - Session aborted -- Cause: Please provide an input directory using --input_dir
+Apr-23 19:42:02.828 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Apr-23 19:42:02.879 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Apr-23 19:42:02.881 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-23 19:42:03.456 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Apr-23 19:42:03.514 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Apr-23 19:42:03.529 [main] ERROR nextflow.cli.Launcher - @unknown
+nextflow.exception.WorkflowScriptErrorException: Please provide an input directory using --input_dir
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.Nextflow.error(Nextflow.groovy:244)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_a32b8499972afbb3.runScript(Script_a32b8499972afbb3:54)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:218)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:260)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:429)
+	at nextflow.cli.Launcher.run(Launcher.groovy:515)
+	at nextflow.cli.Launcher.main(Launcher.groovy:675)
